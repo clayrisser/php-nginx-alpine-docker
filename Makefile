@@ -19,6 +19,8 @@ pull:
 
 .PHONY: push
 push:
+	@docker tag $(IMAGE) jamrizzi/php-nginx-alpine:latest
+	@docker push jamrizzi/php-nginx-alpine:latest
 	@docker push $(IMAGE)
 	@echo pushed $(IMAGE)
 

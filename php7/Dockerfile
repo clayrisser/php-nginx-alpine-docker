@@ -7,6 +7,8 @@ FROM alpine:3.5
 
 MAINTAINER Jam Risser (jamrizzi)
 
+ENV DEBUG=false
+
 EXPOSE 8888
 
 WORKDIR /app/

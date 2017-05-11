@@ -7,6 +7,10 @@ import signal
 from functools import partial
 
 def main(argv):
+    if os.environ['DEBUG'] == 'true':
+        debug_mode();
+    if os.path.exists('/app/start.sh'):
+        os.system('sh /app/start.sh')
     os.system('php-fpm7 &')
     server = subprocess.Popen(['nginx'], shell=True)
     signal.signal(signal.SIGINT, partial(signal_handler, server))
@@ -15,5 +19,8 @@ def main(argv):
 
 def signal_handler(process, signal_int, frame):
     process.send_signal(signal.SIGTERM)
+
+def debug_mode():
+    os.system('apk add --no-cache vim curl git zip unzip')
 
 main(sys.argv);

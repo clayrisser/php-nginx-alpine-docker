@@ -21,6 +21,6 @@ def signal_handler(process, signal_int, frame):
     process.send_signal(signal.SIGTERM)
 
 def debug_mode():
-    os.system('apk add --no-cache vim curl git zip unzip')
+    pass
 
 main(sys.argv);
